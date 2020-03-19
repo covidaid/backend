@@ -5,8 +5,23 @@ const Auth = require("./authModel");
 const generateToken = require("../../token/token");
 // const {checkIfUserExist} = require("../users/middleware")
 
-router.post("/register", (req, res) => {
+router.post("/registeruser", (req, res) => {
   let user = req.body;
+  user.role = 2
+  const hash = bcrypt.hashSync(user.password, 10);
+  user.password = hash;
+  Auth.add(user)
+    .then(saved => {
+      res.status(201).json(saved);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
+router.post("/registervolunteer", (req, res) => {
+  let user = req.body;
+  user.role = 3
   const hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
   Auth.add(user)

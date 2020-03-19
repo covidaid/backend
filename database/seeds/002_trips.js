@@ -13,7 +13,7 @@ exports.seed = function(knex) {
           preferred_time: "11:00:00",
           need_by_date: "2020-03-30T00:00:00.000Z",
           completed: 0,
-          cancelled: 0
+          canceled: 0
         },
         {
           id: 2,
@@ -22,7 +22,7 @@ exports.seed = function(knex) {
           preferred_date: "2020-03-23T00:00:00.000Z",
           preferred_time: "11:00:00",
           completed: 0,
-          cancelled: 0
+          canceled: 0
         },
         {
           id: 3,
@@ -33,7 +33,7 @@ exports.seed = function(knex) {
           preferred_date: "2020-03-23T00:00:00.000Z",
           preferred_time: "11:00:00",
           completed: 0,
-          cancelled: 0
+          canceled: 0
         }
       ]);
     });

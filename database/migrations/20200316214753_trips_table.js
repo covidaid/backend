@@ -12,15 +12,15 @@ exports.up = function(knex) {
 
     tbl.string("description", 1000).notNullable();
 
-    tbl.date("preferred_date").notNullable();
+    tbl.date("preferred_date")
 
-    tbl.time("preferred_time").notNullable();
+    tbl.time("preferred_time")
 
     tbl.date("need_by_date")
 
     tbl.boolean("completed");
 
-    tbl.boolean("cancelled");
+    tbl.boolean("canceled");
 
     tbl.timestamps(true, true);
   });

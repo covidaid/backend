@@ -2,8 +2,9 @@ const cors = require("cors");
 const express = require("express");
 const helmet = require("helmet");
 
-// const authRouter = require("../router/auth/authRouter");
-// const usersRouter = require("../router/users/usersRouter");
+const authRouter = require("../router/auth/authRouter");
+const usersRouter = require("../router/users/usersRouter");
+const tripRouter = require("../router/trips/tripsRouter")
 // const postRidesRouter = require("../router/postRide/postsRidesRouter");
 // const bookRidesRouter = require("../router/bookRide/bookRidesRouter");
 
@@ -14,9 +15,9 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-// server.use("/api/", authRouter);
-// server.use("/api/users", usersRouter);
-// server.use("/api/rides", postRidesRouter);
+server.use("/api/", authRouter);
+server.use("/api/users", usersRouter);
+server.use("/api/trips", tripRouter);
 // server.use("/api/booked", bookRidesRouter);
 
 

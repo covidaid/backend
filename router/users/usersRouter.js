@@ -54,4 +54,19 @@ router.get("/:id", (req, res) => {
   UserInfo(user_id, res, req);
 });
 
+router.put("/",restricted, (req, res) => {
+  const id = req.decodedToken.id;
+  const changes = req.body;
+  Users.update(id, changes)
+    .then(update => {
+      // res.status(200).json(update);
+      UserInfo(update.id, res, req);
+    })
+    .catch(error => {
+      res.status(500).json({
+        errorMessage: error
+      });
+    });
+});
+
 module.exports = router;

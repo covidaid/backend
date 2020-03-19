@@ -2,6 +2,15 @@ const db = require("../../database/dbConfig");
 
 let selected = [];
 
+module.exports = {
+    add,
+    remove,
+    update,
+    getUserPosts,
+    getAllTrips,
+    findById
+  };
+
 function getAllTrips() {
   return db("trips");
 }
@@ -12,14 +21,14 @@ function findById(id) {
     .first();
 }
 
-function getUsersPosts(id) {
+function getUserPosts(id) {
   return db("trips").where("trips.user_id", id);
 }
 
-function add(newTrip) {
+async function add(newTrip) {
     const [id] = await db("trips").insert(newTrip, "id")
 
-    return findById
+    return findById(id)
 }
 
 function remove(id) {
